@@ -1,0 +1,7 @@
+{
+  "name": "concept-immo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
