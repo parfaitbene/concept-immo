@@ -1,0 +1,29 @@
+ion-slides {
+    height: 100%;
+    --bullet-background: var(--ion-color-light);
+    --bullet-background-active: var(--ion-color-secondary);
+}
+
+.img-slide {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+ion-slides div.swiper-pagination span {
+    margin-bottom: 5% !important;
+}
+
+// .swiper-slide h2 {
+//     margin-top: 2.8rem;
+// }
+
+// .swiper-slide img {
+//     max-height: 50%;
+//     max-width: 80%;
+//     margin: 60px 0 40px;
+//     pointer-events: none;
+// }
+  

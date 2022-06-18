@@ -1,0 +1,15 @@
+<ion-page class="ion-page">
+  <ion-content fullscreen class="ion-no-padding" scroll-y="false">
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide>
+        <div class="img-slide" style="background-image:url('assets/img/image-1.jpeg')"></div>
+      </ion-slide>
+      <ion-slide>
+        <div class="img-slide" style="background-image:url('assets/img/image-2.jpeg')"></div>
+      </ion-slide>
+      <ion-slide>
+        <div class="img-slide" style="background-image:url('assets/img/image-3.jpeg')" (click)="onHomePage()"></div>
+      </ion-slide>
+    </ion-slides>
+  </ion-content>
+</ion-page>

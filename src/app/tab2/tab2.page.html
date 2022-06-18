@@ -1,17 +1,34 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="primary" class="first">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="mail-unread-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Mon tableau de bord</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="primary" class="toolbar-effect">
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+<ion-content>
+  <ion-grid class="ion-padding">
+    <ion-row>
+      <ion-col size="6" *ngFor="let category of categories">
+        <div class="cat" (click)="onCategoryClick(category)">
+          <img *ngIf="category.image" [src]="getImage(category.image)" class="cat-img">
+          <img *ngIf="!category.image" src="assets/img/home.png" class="cat-img">
+          <ion-label>{{ category.name }}</ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>  
 </ion-content>

@@ -1,0 +1,46 @@
+.header-md::after { display: none; }
+
+ion-toolbar { padding: 5px 0 !important;}
+
+ion-toolbar.first {
+    padding-top: 0px;
+    margin-bottom: -1px;
+}
+
+.toolbar-effect {
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+ion-title {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 15px;
+}
+
+ion-grid, ion-content { background: transparent; --background: transparent; }
+
+div.cat {
+    border-radius: 20px;
+    background-color: var(--ion-color-primary);
+    margin: 5px auto;
+}
+
+div.cat img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: 100%;
+    width: 100%;
+    max-height: 125px;
+}
+
+
+div.cat ion-label{
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #fff;
+    padding: 10px 0 15px;
+    font-weight: bold;
+}

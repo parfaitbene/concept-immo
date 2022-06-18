@@ -1,8 +1,23 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="primary" class="first">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab2"></ion-back-button>
+      <ion-button>
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="mail-unread-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Tab 1</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="primary" class="toolbar-effect">
+    <ion-searchbar color="light" class="ion-padding"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
@@ -12,6 +27,4 @@
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
 </ion-content>

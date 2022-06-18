@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar color="primary" class="first">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-button>
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="mail-unread-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ property.name }}</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="primary" class="toolbar-effect">
+    <ion-searchbar color="light" class="ion-padding"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-vertical">
+  <ion-grid>
+    <ion-row class="ion-padding-vertical property-infos">
+      <ion-col size="6">
+        <div class="ion-text-left">
+          <div class="ion-text-uppercase"><ion-label>Gros Revenu</ion-label></div>
+          <div class="ion-padding-vertical"><ion-text color="success">{{ property.balance }}</ion-text></div>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div class="ion-text-right">
+          <div class="ion-text-uppercase"><ion-label>Expenses</ion-label></div>
+          <div class="ion-padding-vertical"><ion-text color="danger">{{ property.expense }}</ion-text></div>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+          <div class="ion-text-uppercase"><ion-label>Net Result</ion-label></div>
+          <div color="success"><ion-text color="success">{{ getNetResult() }}</ion-text></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>  
+  <ion-grid class="ion-margin-vertical" *ngIf="property.locations.length">  
+    <ion-row class="ion-padding-vertical" *ngFor="let location of property.locations" class="location ion-no-border">
+      <ion-col size="6">
+        <div class="ion-text-left prop">{{ location.name }}</div>
+      </ion-col>
+      <ion-col size="6">
+        <div class="ion-text-right">
+          <ion-text class="ion-text-right" [color]="getColor(location.active)">
+            <ion-icon name="ellipse" [color]="getColor(location.active)"></ion-icon>
+            Active
+          </ion-text>
+        </div>
+      </ion-col>
+      <ion-col size="12" class="details">
+        <div>{{ property.adress }}</div>
+        <div *ngIf="location.tenant" class="tenant">{{ location.tenant.name }}</div>
+      </ion-col>
+      <ion-col size="8">
+        <div  class="ion-text-left date">From {{ location.start }} to {{ location.end }}</div>
+      </ion-col>
+      <ion-col size="4">
+        <div  class="ion-text-right"><ion-text color="success">{{ location.balance }}</ion-text></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>  
+
+</ion-content>

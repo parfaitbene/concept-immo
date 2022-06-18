@@ -1,0 +1,43 @@
+.header-md::after { display: none; }
+
+ion-toolbar { padding: 5px 0 !important;}
+
+ion-toolbar.first {
+    padding-top: 0px;
+    margin-bottom: -1px;
+}
+
+.toolbar-effect {
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+ion-title {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 15px;
+}
+
+ion-grid, ion-content { --background: #F6F6F6; background: #F6F6F6; }
+
+ion-item.property { border-bottom: 5px solid #F6F6F6; }
+
+ion-searchbar { 
+    padding: 15px 30px;
+    --border-radius: 20px;
+ }
+
+ion-thumbnail {
+    width: 100px;
+    height: 100px;
+}
+
+img.property-img { border-radius: 15px; }
+
+ion-label p { margin-top: 5px; }
+
+ul {
+    margin: 1px;
+    list-style: unset;
+    padding: 5px;
+}

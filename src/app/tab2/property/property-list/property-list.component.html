@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary" class="first">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-button>
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="mail-unread-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ category.name }}</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="primary" class="toolbar-effect">
+    <ion-searchbar color="light" class="ion-padding"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-vertical">
+  <ion-list lines="none" class="ion-no-padding">
+    <ion-item *ngFor="let property of category.properties" class="property ion-no-border" (click)="onPropertyClick(property)">
+      <ion-thumbnail slot="start">
+        <img *ngIf="property.image" [src]="getImage(property.image)" class="property-img"/>
+        <img  *ngIf="!property.image" src="assets/img/home.png" class="property-img"/>
+      </ion-thumbnail>
+      <ion-label class="ion-no-border">
+        {{ property.name }}
+        <p><ion-icon name="location-outline"></ion-icon> {{ property.adress }}</p>
+        <ul class="list-unstyled" *ngIf="property.detail">
+          <li *ngFor="let detail of property.detail">{{ detail.count }} {{ detail.name }}<span *ngIf="detail.count > 1">s</span></li>
+        </ul>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
