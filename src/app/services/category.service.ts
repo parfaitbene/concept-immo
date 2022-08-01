@@ -7,6 +7,7 @@ import { Category } from '../models/category.model';
 import { Location } from '../models/location.model';
 import { Property } from '../models/property.model';
 import { Tenant } from '../models/tenant.model';
+import { AppConfig } from './app-config.service';
 import { UserService } from './user.service';
 
 @Injectable({
@@ -19,6 +20,7 @@ export class CategoryService {
 
   constructor(
     private userService: UserService,
+    private appConfig: AppConfig,
     private loadCtrl: LoadingController,
     ) {
   }
@@ -38,7 +40,7 @@ export class CategoryService {
           this.categoryList = [];
 
           const client = new JSONRPCClient((jsonRPCRequest) =>
-          fetch("https://conceptimmo.advancecloud.org/api/get/landlord_info/", {
+          fetch(this.appConfig.api.default.url+"/api/get/landlord_info/", {
             method: "POST",
             headers: {
               "content-type": "application/json",

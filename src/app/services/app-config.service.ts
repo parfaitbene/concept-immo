@@ -11,6 +11,9 @@ export class AppConfig {
 
   api = {
     default: {
+      url: "https://pms.conceptimmobilier.online"
+    },
+    dev: {
       url: "https://conceptimmo.advancecloud.org"
     }
   };

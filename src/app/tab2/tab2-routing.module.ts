@@ -4,6 +4,7 @@ import { LocationListComponent } from './locataire/location-list/location-list.c
 import { PropertyDetailComponent } from './property/property-detail/property-detail.component';
 import { PropertyListComponent } from './property/property-list/property-list.component';
 import { Tab2Page } from './tab2.page';
+import { AuthGuard } from 'src/app/services/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -12,15 +13,18 @@ const routes: Routes = [
   },
   {
     path: 'property-list/:idCategory',
-    component: PropertyListComponent
+    component: PropertyListComponent,
+    canActivate: [AuthGuard] 
   },
   {
     path: 'property-detail/:idCategory/:idProperty',
-    component: PropertyDetailComponent
+    component: PropertyDetailComponent,
+    canActivate: [AuthGuard] 
   },
   {
     path: 'location-list',
-    component: LocationListComponent
+    component: LocationListComponent,
+    canActivate: [AuthGuard] 
   },
 ];
 

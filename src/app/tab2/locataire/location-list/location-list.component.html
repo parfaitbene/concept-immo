@@ -32,7 +32,7 @@
       <ion-col size="6">
         <div class="ion-text-right">
           <div color="success" *ngIf="location.balance > 0"><ion-text color="success">{{ location.balance }}</ion-text></div>
-          <div color="danger" *ngIf="location.balance < 0"><ion-text color="success">{{ location.balance }}</ion-text></div>
+          <div color="danger" *ngIf="location.balance <= 0"><ion-text color="danger">{{ location.balance }}</ion-text></div>
         </div>
       </ion-col>
     </ion-row>
@@ -44,7 +44,7 @@
       </ion-col>
       <ion-col size="4">
         <div  class="ion-text-right" *ngIf="location.balance > 0"><ion-text color="success">{{ service.amount }}</ion-text></div>
-        <div  class="ion-text-right" *ngIf="location.balance < 0"><ion-text color="danger">{{ service.amount }}</ion-text></div>
+        <div  class="ion-text-right" *ngIf="location.balance <= 0"><ion-text color="danger">{{ service.amount }}</ion-text></div>
       </ion-col>
     </ion-row>
   </ion-grid>  

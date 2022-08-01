@@ -36,7 +36,7 @@ export class LocationService {
             async (resolve, reject) => {
               await (await (this.loadCtrl.create())).present();
               const client = new JSONRPCClient((jsonRPCRequest) =>
-              fetch("https://conceptimmo.advancecloud.org/api/get/tenant_info/", {
+              fetch(this.appConfig.api.default.url+"/api/get/tenant_info/", {
                 method: "POST",
                 headers: {
                   "content-type": "application/json",

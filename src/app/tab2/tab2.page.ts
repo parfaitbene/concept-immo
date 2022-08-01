@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController, ModalController, ToastController } from '@ionic/angular';
+import { ActionSheetController, LoadingController, ModalController, ToastController } from '@ionic/angular';
 import { DefaultApiError, DefaultApiResponseParser } from '../models/api-response.model';
 import { Category } from '../models/category.model';
 import { CategoryService } from '../services/category.service';
@@ -23,7 +23,8 @@ export class Tab2Page implements OnInit {
     private userService: UserService,
     public modalController: ModalController,
     private router: Router,
-    private tabService: TabService
+    private tabService: TabService,
+    public actionSheetController: ActionSheetController,
     ) {}
 
   ngOnInit(): void {
@@ -51,5 +52,28 @@ export class Tab2Page implements OnInit {
 
   async onCategoryClick(category: Category) {
     this.router.navigate(['tabs', 'tab2', 'property-list', category.id])
+  }
+
+  async onProfileClick(){
+      const actionSheet = await this.actionSheetController.create({
+        header: 'Actions',
+        buttons: [{
+          text: 'Déconnexion',
+          role: 'destructive',
+          icon: 'log-out-outline',
+          handler: () => {
+            this.userService.signOut();
+            this.router.navigate(['login']);
+          }
+        },
+        {
+          text: 'Annuler',
+          icon: 'close',
+          role: 'cancel',
+          handler: () => {
+          }
+        }]
+      });
+      await actionSheet.present();
   }
 }

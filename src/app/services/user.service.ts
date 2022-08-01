@@ -51,11 +51,27 @@ export class UserService{
     this.userSubject.next(this.user);
   }
 
+  fakeSignIn(email: string, password: string, partner_type: string){
+    return new Promise(
+      (resolve, reject) => {
+        this.user = new Utilisateur();
+        this.user.id = 1;
+        this.user.email = 'test@test.cm';
+        this.user.partner_type = 'landlord'; //tenant
+        this.user.image = ''
+        this.user.isAuth = true;
+        this.storageService.set('user', JSON.stringify(this.user));
+        this.emitUser();
+        
+        resolve(this.user);
+      });
+  }
+
   signIn(email: string, password: string, partner_type: string){
       return new Promise(
           (resolve, reject) => {
             const client = new JSONRPCClient((jsonRPCRequest) =>
-            fetch("https://conceptimmo.advancecloud.org/api/authen/", {
+            fetch(this.appConfig.api.default.url+"/api/authen/", {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -93,6 +109,17 @@ export class UserService{
               });
           }
       );
+  }
+
+  signOut() {
+    return new Promise(
+        (resolve, reject) => {
+          this.user = new Utilisateur();
+          this.storageService.set('user', JSON.stringify(this.user));
+          this.emitUser();
+          resolve(this.user);
+        }
+    );
   }
 
 }
